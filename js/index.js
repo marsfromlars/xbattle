@@ -16,9 +16,11 @@ let size = 20;
 
 for( let y = 0; y < height; y++ ) {
   for( let x = 0; x < width; x++ ) {
-    let hex = new Hexagon( x, y, size );
-    hex.draw( ctx );
-    c.drawCircle( hex.leftX + hex.center.x, hex.topY + hex.center.y, 0.6 * size, true );
+    if( y % 2 != 0 || x < width - 1 ) {
+      let hex = new Hexagon( x, y, size );
+      hex.draw( ctx );
+      c.drawCircle( hex.leftX + hex.center.x, hex.topY + hex.center.y, 0.6 * size, true );
+    }
   }
 }
 
