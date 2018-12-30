@@ -15,7 +15,8 @@ let hexagon = function( side ) {
       [ middle, height ],
       [ 0, halfside + side ],
       [ 0, halfside ]
-    ]
+    ],
+    center: [ middle, side ] 
   }
 };
 
@@ -66,6 +67,7 @@ let drawHexgrid = function( ctx, xStart, yStart, width, height, side ) {
     for( let x = x0; x < w0; x++ ) {
       let pos = hexgrid( x, y, side );
       let h = hexagon( side );
+      drawHexagon( ctx, h, xStart - ( h.width / 2 ) + pos[ 0 ], yStart + pos[ 1 ] );
       drawHexagon( ctx, h, xStart - ( h.width / 2 ) + pos[ 0 ], yStart + pos[ 1 ] );
     }
   }
