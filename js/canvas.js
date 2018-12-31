@@ -14,11 +14,13 @@
   };
   */
 
-  Canvas.prototype.drawCircle = function ( x, y, r, fill ) {
+  Canvas.prototype.drawCircle = function ( x, y, r, border, fill ) {
     var me = this, context = me.context;
     context.beginPath();
     context.arc( x, y, r, 0, 2 * Math.PI );
-    context.stroke();
+    if( border ) {
+      context.stroke();
+    }
     if( fill ) {
       context.fill();
     }
