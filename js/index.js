@@ -7,27 +7,40 @@ ctx.lineWidth = 1;
 ctx.setTransform(1,0,0,1,0.5,0.5); // not so useful for the curve itself
 
 
-let c = new Canvas( ctx );
+let canvas = new Canvas( ctx );
 
 let marginLeft = 10;
 let marginTop = 10;
 let width = 10;
 let height = 15;
 let size = 20;
+let border = 10;
+
+let board = new HexBoard( 10, 10 );
+
+let redraw = function() {
+  canvas1.width = document.documentElement.clientWidth;
+  canvas1.height = document.documentElement.clientHeight;
+  board.draw( ctx, border, border, canvas.getWidth() - 2 * border, canvas.getHeight() - 2 * border );
+}
+
+redraw();
 
 //drawHexgrid( ctx, marginLeft, marginTop, width, height, size );
 
+/*
 for( let y = 0; y < height; y++ ) {
   for( let x = 0; x < width; x++ ) {
     if( y % 2 != 0 || x < width - 1 ) {
       let hex = new Hexagon( x, y, size );
       ctx.fillStyle = 'lightgray';
-      hex.draw( ctx, true, true );
+      hex.draw( ctx, true, true, 0, 0 );
       ctx.fillStyle = 'gray';
-      c.drawCircle( hex.leftX + hex.center.x, hex.topY + hex.center.y, 0.6 * size, true, true );
+      canvas.drawCircle( hex.leftX + hex.center.x, hex.topY + hex.center.y, 0.6 * size, true, true );
     }
   }
 }
+*/
 
 /*
 ctx.moveTo( 0, 0 );
@@ -46,3 +59,9 @@ for( let y = 0; y < height; y++ ) {
   }
 }
 */
+
+window.addEventListener("resize", resizeCanvas, false);
+ 
+function resizeCanvas(e) {
+  redraw();
+}

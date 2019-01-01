@@ -3,8 +3,19 @@
 (function () {
   
   Canvas = function ( context ) {
-       this.context = context;
+
+    let me = this;
+    me.context = context;
+
   };
+
+  Canvas.prototype.getWidth = function() {
+    return this.context.canvas.scrollWidth;
+  }
+
+  Canvas.prototype.getHeight = function() {
+    return this.context.canvas.scrollHeight;
+  }
 
   /*
   var privateMethod = function (x) {

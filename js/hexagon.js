@@ -7,7 +7,7 @@
     me.x = x;
     me.y = y;
     me.side = side;
-    me.middle = Math.floor( me.side * Math.sin( 60 * Math.PI / 180 ) );
+    me.middle = Math.floor( me.side * Math.sinDegrees( 60 ) );
     me.halfside = Math.floor( me.side / 2 );
     me.width = 2 * me.middle;
     me.height = 2 * me.side;
@@ -30,22 +30,13 @@
     }
   };
 
-  /*
-  var privateMethod = function (x) {
-      if (this.bar === 999) {
-          this.bar = x;
-      }
-  };
-  */
-
-  Hexagon.prototype.draw = function ( context, border, fill ) {
+  Hexagon.prototype.draw = function ( context, border, fill, offsetX, offsetY ) {
     
     let me = this;
-    //let c = new Canvas( context );
     let c = context;
     let p = me.points;
-    let x = me.leftX;
-    let y = me.topY;
+    let x = me.leftX + offsetX;
+    let y = me.topY + offsetY;
 
     c.beginPath();
     c.moveTo( x + p[ 0 ][ 0 ], y + p[ 0 ][ 1 ] );
@@ -62,6 +53,6 @@
       c.fill();
     }
 
-};
+  };
 
 }());
