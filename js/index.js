@@ -4,11 +4,6 @@ let ctx = canvas1.getContext( '2d' );
 ctx.strokeStyle = 'black';
 ctx.fillStyle = 'gray';
 ctx.lineWidth = 1;
-//ctx.filter = 'url(#remove-alpha)';
-//ctx.translate( 0.5, 0.5 );
-
-//ctx.lineWidth = 1.25;              // gives some space for lightness
-//ctx.strokeStyle = "hsl(0,0%,10%)"; // reduces contrast
 ctx.setTransform(1,0,0,1,0.5,0.5); // not so useful for the curve itself
 
 
