@@ -20,7 +20,7 @@ let board = new HexBoard( 10, 10 );
 
 let redraw = function() {
   canvas1.width = document.documentElement.clientWidth;
-  canvas1.height = document.documentElement.clientHeight;
+  canvas1.height = document.documentElement.clientHeight - canvas1.offsetTop;
   board.draw( ctx, border, border, canvas.getWidth() - 2 * border, canvas.getHeight() - 2 * border );
 }
 
