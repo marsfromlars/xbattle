@@ -1,4 +1,4 @@
-/** Utilities for drawinh hexagons and hex grids */
+/** Utilities for drawing */
 
 (function () {
   
