@@ -45,12 +45,12 @@
     }
     c.closePath();
 
-    if( border ) {
-      c.stroke();
-    }
-
     if( fill ) {
       c.fill();
+    }
+
+    if( border ) {
+      c.stroke();
     }
 
   };

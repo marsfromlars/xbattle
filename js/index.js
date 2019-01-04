@@ -1,9 +1,10 @@
 let canvas1 = document.getElementById( 'canvas1' );
 let ctx = canvas1.getContext( '2d' );
-ctx.strokeStyle = 'black';
+ctx.strokeStyle = '#333333';
 ctx.fillStyle = 'gray';
-ctx.lineWidth = 1;
-ctx.setTransform(1,0,0,1,0.5,0.5);
+ctx.lineWidth = 0.5;
+ctx.translate( 0.5, 0.5 );
+//ctx.setTransform(1,0,0,1,0.5,0.5);
 
 let canvas = new Canvas( ctx );
 
@@ -17,8 +18,12 @@ let border = 10;
 let board = new HexBoard( 10, 15 );
 
 let redraw = function() {
+  let strokeStyle = ctx.strokeStyle;
+  let lineWidth = ctx.lineWidth;
   canvas1.width = document.documentElement.clientWidth;
   canvas1.height = document.documentElement.clientHeight - canvas1.offsetTop;
+  ctx.strokeStyle = strokeStyle;
+  ctx.lineWidth = lineWidth;
   board.draw( ctx, border, border, canvas.getWidth() - 2 * border, canvas.getHeight() - 2 * border );
 }
 

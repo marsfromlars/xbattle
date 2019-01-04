@@ -29,11 +29,11 @@
     var me = this, context = me.context;
     context.beginPath();
     context.arc( x, y, r, 0, 2 * Math.PI );
-    if( border ) {
-      context.stroke();
-    }
     if( fill ) {
       context.fill();
+    }
+    if( border ) {
+      context.stroke();
     }
   };
 
