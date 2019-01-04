@@ -15,8 +15,25 @@
     let canvas = new Canvas( context );
     let hex = new Hexagon( s.column, s.row, sideLength );
     
+    // draw hexagon
     context.fillStyle = 'lightgray';
     hex.draw( context, true, true, boardOffsetX, boardOffsetY );
+
+    // draw roads
+    let x = boardOffsetX + hex.leftX + hex.center.x;
+    let y = boardOffsetY + hex.topY + hex.center.y;
+
+    canvas.drawLine( x, y, x - hex.diag.x, y - hex.diag.y );
+    canvas.drawLine( x, y, x + hex.diag.x, y - hex.diag.y );
+    canvas.drawLine( x, y, x + hex.middle, y );
+    canvas.drawLine( x, y, x - hex.diag.x, y + hex.diag.y );
+    canvas.drawLine( x, y, x + hex.diag.x, y + hex.diag.y );
+    canvas.drawLine( x, y, x - hex.middle, y );
+  
+    if( status.northWest ) {
+
+    }
+
     context.fillStyle = '#aaaaaa';
     canvas.drawCircle( 
       boardOffsetX + hex.leftX + hex.center.x, 

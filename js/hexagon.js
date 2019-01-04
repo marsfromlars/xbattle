@@ -28,6 +28,10 @@
     if( y % 2 == 0 ) {
       me.leftX += me.middle;
     }
+    me.diag = {
+      x: Math.floor( me.middle * Math.cosDegrees( 60 ) ),
+      y: Math.floor( me.middle * Math.sinDegrees( 60 ) )
+    }
   };
 
   Hexagon.prototype.draw = function ( context, border, fill, offsetX, offsetY ) {
