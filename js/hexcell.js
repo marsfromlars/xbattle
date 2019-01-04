@@ -38,8 +38,16 @@
     canvas.drawCircle( 
       boardOffsetX + hex.leftX + hex.center.x, 
       boardOffsetY + hex.topY + hex.center.y, 
-      0.6 * sideLength, true, true );
+      0.6 * sideLength, false, true );
 
-  };
+    context.save();
+    context.lineWidth = 2;
+    canvas.drawCircle( 
+      boardOffsetX + hex.leftX + hex.center.x, 
+      boardOffsetY + hex.topY + hex.center.y, 
+      0.6 * sideLength, true, false );
+    context.restore();
+
+    };
 
 }());
